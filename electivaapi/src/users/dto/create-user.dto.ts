@@ -1,17 +1,17 @@
-export class CreateUserDto {
-    readonly email: string;
-    password: string;
-    readonly name: string;
-    readonly lastname: string;
-    readonly identification: string;
-    readonly picture: string;
-    readonly phone: string;
-    readonly gender: string;
-    readonly birthday: string;
-    readonly country: string;
-    readonly state:string;
-    readonly city: string;
-    readonly address: string;
-    readonly active: boolean;
+import { IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { ApiProperty } from "@nestjs/swagger";
 
+export class CreateUserDto { 
+    @IsEmail()
+    @IsNotEmpty()
+    readonly email: string; 
+    @IsString()
+    @IsNotEmpty()
+    password: string;
+    @IsString()
+    @IsNotEmpty()
+   readonly name: string;
+    @IsString()
+    @IsOptional()
+    readonly lastname: string;
 }
